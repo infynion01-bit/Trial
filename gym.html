@@ -1,0 +1,1388 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transform your body and mind at Elite Fitness - Premium gym with expert trainers and world-class equipment across 3 locations">
+  <title>Aryans Fitness | Premium Gym &amp; Fitness Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Barlow:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .font-bebas {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.08em;
+    }
+    .font-barlow {
+      font-family: 'Barlow', sans-serif;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+    
+    .animate-slide-left {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+    
+    .animate-slide-right {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+    
+    .animate-scale-in {
+      animation: scaleIn 0.6s ease-out forwards;
+    }
+    
+    .animate-delay-100 { animation-delay: 0.1s; }
+    .animate-delay-200 { animation-delay: 0.2s; }
+    .animate-delay-300 { animation-delay: 0.3s; }
+    .animate-delay-400 { animation-delay: 0.4s; }
+    .animate-delay-500 { animation-delay: 0.5s; }
+    .animate-delay-600 { animation-delay: 0.6s; }
+    
+    .opacity-0 { opacity: 0; }
+    
+    /* Custom color scheme - Deep Black/Charcoal with Metallic Gray/Silver accents */
+    .bg-primary {
+      background-color: #0d0d0d;
+    }
+    
+    .bg-secondary {
+      background-color: #1a1a1a;
+    }
+    
+    .bg-accent {
+      background: linear-gradient(135deg, #8a8a8a 0%, #b8b8b8 100%);
+    }
+    
+    .text-accent {
+      background: linear-gradient(135deg, #8a8a8a 0%, #b8b8b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .border-accent {
+      border-color: #6a6a6a;
+    }
+    
+    /* Hero pattern */
+    .hero-pattern {
+      background-image: 
+        linear-gradient(135deg, rgba(13, 13, 13, 0.98) 0%, rgba(0, 0, 0, 0.99) 100%),
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(138, 138, 138, 0.02) 10px, rgba(138, 138, 138, 0.02) 20px);
+    }
+    
+    /* Scroll reveal */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Button effects */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    
+    /* Card hover effects */
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(138, 138, 138, 0.15);
+    }
+    
+    /* Navbar scroll effect */
+    .navbar-scrolled {
+      background: rgba(13, 13, 13, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Image overlay */
+    .image-overlay {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .image-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(138, 138, 138, 0.2), rgba(184, 184, 184, 0.2));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .image-overlay:hover::after {
+      opacity: 1;
+    }
+    
+    /* Gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    /* Star rating */
+    .star-rating {
+      color: #b8b8b8;
+    }
+    
+    .star-filled {
+      color: #b8b8b8;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-barlow bg-primary text-white overflow-x-hidden">
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Navigation -->
+   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex items-center justify-between h-20"><!-- Logo -->
+      <div class="flex-shrink-0"><a href="#home" class="flex items-center space-x-3">
+        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+         <svg class="w-7 h-7 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+         </svg>
+        </div>
+        <div><span id="gymNameNav" class="font-bebas text-2xl text-white">ARYANS FITNESS CLUB</span>
+        </div></a>
+      </div><!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center space-x-8"><a href="#home" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">HOME</a> <a href="#about" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">ABOUT</a> <a href="#classes" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">CLASSES</a> <a href="#trainers" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">TRAINERS</a> <a href="#gallery" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">GALLERY</a> <a href="#locations" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">LOCATIONS</a> <a href="#reviews" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">REVIEWS</a> <a href="#pricing" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">PRICING</a>
+      </div><!-- CTA Button -->
+      <div class="hidden lg:block"><a href="#pricing" class="btn-primary px-6 py-3 bg-accent text-black font-bold text-sm rounded-lg hover:shadow-lg"> JOIN NOW </a>
+      </div><!-- Mobile Menu Button --> <button id="mobileMenuBtn" class="lg:hidden p-2 text-gray-300 hover:text-white">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div>
+    </div><!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-secondary backdrop-blur-lg border-t border-gray-800">
+     <div class="px-4 py-6 space-y-4"><a href="#home" class="block text-gray-300 hover:text-white py-2">HOME</a> <a href="#about" class="block text-gray-300 hover:text-white py-2">ABOUT</a> <a href="#classes" class="block text-gray-300 hover:text-white py-2">CLASSES</a> <a href="#trainers" class="block text-gray-300 hover:text-white py-2">TRAINERS</a> <a href="#gallery" class="block text-gray-300 hover:text-white py-2">GALLERY</a> <a href="#locations" class="block text-gray-300 hover:text-white py-2">LOCATIONS</a> <a href="#reviews" class="block text-gray-300 hover:text-white py-2">REVIEWS</a> <a href="#pricing" class="block text-gray-300 hover:text-white py-2">PRICING</a> <a href="#pricing" class="block mt-4 px-6 py-3 bg-accent text-black text-center font-bold rounded-lg">JOIN NOW</a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="home" class="relative min-h-screen flex items-center justify-center hero-pattern"><!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden">
+     <div class="absolute top-20 left-10 w-72 h-72 bg-gray-500/5 rounded-full blur-3xl"></div>
+     <div class="absolute bottom-20 right-10 w-96 h-96 bg-gray-400/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+     <div class="text-center"><!-- Main Content -->
+      <div class="mb-8 opacity-0 animate-fade-in"><span class="inline-block px-4 py-2 bg-gray-600/20 text-gray-300 text-sm font-bold rounded-full border border-gray-600/30"> ⚡ TRANSFORM YOUR LIFE </span>
+      </div>
+      <h1 id="heroTitle" class="font-bebas text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-6 opacity-0 animate-fade-in-up animate-delay-200"><span class="block text-white">TRANSFORM</span> <span class="block text-accent">YOUR BODY</span></h1>
+      <p id="heroSubtitle" class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-400 mb-12 opacity-0 animate-fade-in-up animate-delay-300">Join the strongest fitness community and achieve your goals with expert trainers, state-of-the-art equipment, and unlimited motivation.</p><!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in-up animate-delay-400"><a href="#pricing" class="group btn-primary px-8 py-4 bg-accent text-black font-bebas text-xl rounded-lg hover:shadow-2xl flex items-center gap-2"> GET STARTED 
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a> <a href="#about" class="px-8 py-4 border-2 border-gray-700 text-white font-bebas text-xl rounded-lg hover:border-gray-500 hover:bg-gray-700/10 transition-all"> LEARN MORE </a>
+      </div><!-- Stats -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-0 animate-fade-in-up animate-delay-500">
+       <div class="text-center">
+        <div class="font-bebas text-5xl text-accent mb-2">
+         3
+        </div>
+        <div class="text-sm text-gray-500 uppercase font-semibold">
+         Locations
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="font-bebas text-5xl text-accent mb-2">
+         500+
+        </div>
+        <div class="text-sm text-gray-500 uppercase font-semibold">
+         Active Members
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="font-bebas text-5xl text-accent mb-2">
+         15+
+        </div>
+        <div class="text-sm text-gray-500 uppercase font-semibold">
+         Expert Trainers
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="font-bebas text-5xl text-accent mb-2">
+         50+
+        </div>
+        <div class="text-sm text-gray-500 uppercase font-semibold">
+         Classes Weekly
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+     <div class="animate-bounce">
+      <svg class="w-6 h-10 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 40"><rect x="1" y="1" width="22" height="38" rx="11" stroke-width="2" /> <circle cx="12" cy="12" r="3" fill="currentColor" />
+      </svg>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-24 bg-primary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid lg:grid-cols-2 gap-16 items-center"><!-- Image Side -->
+      <div class="scroll-reveal">
+       <div class="relative">
+        <div class="aspect-[4/3] bg-gradient-to-br from-gray-800 to-black rounded-2xl overflow-hidden image-overlay">
+         <div class="w-full h-full flex items-center justify-center">
+          <svg class="w-48 h-48 text-gray-700" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+         </div>
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-accent rounded-2xl -z-10"></div>
+       </div>
+      </div><!-- Content Side -->
+      <div class="scroll-reveal"><span class="inline-block px-4 py-2 bg-gray-600/20 text-gray-300 text-sm font-bold rounded-full border border-gray-600/30 mb-6"> ABOUT US </span>
+       <h2 id="aboutTitle" class="font-bebas text-5xl sm:text-6xl text-white mb-6">WHERE FITNESS MEETS <span class="text-accent">EXCELLENCE</span></h2>
+       <p id="aboutDescription" class="text-gray-400 text-lg leading-relaxed mb-8">At Elite Fitness, we're more than just a gym – we're a community dedicated to helping you achieve your fitness goals. With state-of-the-art equipment, expert trainers, and a motivating atmosphere across 3 convenient locations, we provide everything you need to transform your body and mind.</p><!-- Features -->
+       <div class="grid grid-cols-2 gap-6">
+        <div class="flex items-start gap-3">
+         <div class="p-2 bg-accent rounded-lg flex-shrink-0">
+          <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+         </div>
+         <div>
+          <h3 class="font-bold text-white mb-1">Expert Trainers</h3>
+          <p class="text-sm text-gray-500">Certified professionals</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="p-2 bg-accent rounded-lg flex-shrink-0">
+          <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+         </div>
+         <div>
+          <h3 class="font-bold text-white mb-1">Modern Equipment</h3>
+          <p class="text-sm text-gray-500">Latest technology</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="p-2 bg-accent rounded-lg flex-shrink-0">
+          <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+         </div>
+         <div>
+          <h3 class="font-bold text-white mb-1">3 Locations</h3>
+          <p class="text-sm text-gray-500">Convenient access</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="p-2 bg-accent rounded-lg flex-shrink-0">
+          <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+         </div>
+         <div>
+          <h3 class="font-bold text-white mb-1">Group Classes</h3>
+          <p class="text-sm text-gray-500">50+ weekly sessions</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Classes Section -->
+   <section id="classes" class="py-24 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16 scroll-reveal"><span class="inline-block px-4 py-2 bg-gray-600/20 text-gray-300 text-sm font-bold rounded-full border border-gray-600/30 mb-6"> OUR CLASSES </span>
+      <h2 class="font-bebas text-5xl sm:text-6xl text-white mb-4">FIND YOUR <span class="text-accent">PERFECT WORKOUT</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">From high-intensity training to relaxing yoga, we offer diverse classes for all fitness levels.</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Class Card 1 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+       </div>
+       <h3 class="font-bebas text-3xl text-white mb-3">STRENGTH TRAINING</h3>
+       <p class="text-gray-400 mb-6">Build muscle and increase power with our comprehensive strength programs.</p>
+       <div class="flex items-center gap-4 text-sm text-gray-500"><span>⏱️ 45 min</span> <span>🔥 High Intensity</span>
+       </div>
+      </div><!-- Class Card 2 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+       </div>
+       <h3 class="font-bebas text-3xl text-white mb-3">CARDIO BLAST</h3>
+       <p class="text-gray-400 mb-6">Burn calories and boost endurance with high-energy cardio sessions.</p>
+       <div class="flex items-center gap-4 text-sm text-gray-500"><span>⏱️ 30 min</span> <span>🔥 Very High</span>
+       </div>
+      </div><!-- Class Card 3 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+       </div>
+       <h3 class="font-bebas text-3xl text-white mb-3">YOGA &amp; FLEXIBILITY</h3>
+       <p class="text-gray-400 mb-6">Improve flexibility, balance, and mental clarity through yoga practice.</p>
+       <div class="flex items-center gap-4 text-sm text-gray-500"><span>⏱️ 60 min</span> <span>🧘 Low Impact</span>
+       </div>
+      </div><!-- Class Card 4 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+       </div>
+       <h3 class="font-bebas text-3xl text-white mb-3">CROSSFIT</h3>
+       <p class="text-gray-400 mb-6">Functional movements at high intensity for total body fitness.</p>
+       <div class="flex items-center gap-4 text-sm text-gray-500"><span>⏱️ 50 min</span> <span>🔥 Extreme</span>
+       </div>
+      </div><!-- Class Card 5 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+        </svg>
+       </div>
+       <h3 class="font-bebas text-3xl text-white mb-3">ZUMBA</h3>
+       <p class="text-gray-400 mb-6">Dance your way to fitness with energetic Latin-inspired workouts.</p>
+       <div class="flex items-center gap-4 text-sm text-gray-500"><span>⏱️ 45 min</span> <span>💃 Medium</span>
+       </div>
+      </div><!-- Class Card 6 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+        </svg>
+       </div>
+       <h3 class="font-bebas text-3xl text-white mb-3">BOXING</h3>
+       <p class="text-gray-400 mb-6">Learn boxing techniques while getting an incredible full-body workout.</p>
+       <div class="flex items-center gap-4 text-sm text-gray-500"><span>⏱️ 40 min</span> <span>🥊 High Intensity</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Trainers Section -->
+   <section id="trainers" class="py-24 bg-primary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16 scroll-reveal"><span class="inline-block px-4 py-2 bg-gray-600/20 text-gray-300 text-sm font-bold rounded-full border border-gray-600/30 mb-6"> OUR TEAM </span>
+      <h2 class="font-bebas text-5xl sm:text-6xl text-white mb-4">MEET YOUR <span class="text-accent">EXPERT TRAINERS</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Our certified professionals are here to guide you every step of the way to your fitness goals.</p>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"><!-- Trainer 1 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl overflow-hidden border border-gray-800">
+       <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+        <svg class="w-32 h-32 text-gray-700" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <h3 id="trainer1Name" class="font-bebas text-2xl text-white mb-1">MIKE JOHNSON</h3>
+        <p id="trainer1Specialty" class="text-gray-400 text-sm mb-3">Strength &amp; Conditioning</p>
+        <p id="trainer1Bio" class="text-gray-500 text-xs leading-relaxed mb-4">10+ years experience. Specializes in powerlifting and athletic performance.</p>
+        <div class="flex items-center gap-2 text-xs text-gray-600">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+         </svg><span id="trainer1Location">Downtown</span>
+        </div>
+       </div>
+      </div><!-- Trainer 2 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl overflow-hidden border border-gray-800">
+       <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+        <svg class="w-32 h-32 text-gray-700" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <h3 id="trainer2Name" class="font-bebas text-2xl text-white mb-1">SARAH MARTINEZ</h3>
+        <p id="trainer2Specialty" class="text-gray-400 text-sm mb-3">Yoga &amp; Flexibility</p>
+        <p id="trainer2Bio" class="text-gray-500 text-xs leading-relaxed mb-4">Certified yoga instructor with focus on mobility and mindfulness training.</p>
+        <div class="flex items-center gap-2 text-xs text-gray-600">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+         </svg><span id="trainer2Location">Westside</span>
+        </div>
+       </div>
+      </div><!-- Trainer 3 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl overflow-hidden border border-gray-800">
+       <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+        <svg class="w-32 h-32 text-gray-700" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <h3 id="trainer3Name" class="font-bebas text-2xl text-white mb-1">ALEX CHEN</h3>
+        <p id="trainer3Specialty" class="text-gray-400 text-sm mb-3">CrossFit &amp; HIIT</p>
+        <p id="trainer3Bio" class="text-gray-500 text-xs leading-relaxed mb-4">Former athlete specializing in high-intensity functional fitness programs.</p>
+        <div class="flex items-center gap-2 text-xs text-gray-600">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+         </svg><span id="trainer3Location">Eastside</span>
+        </div>
+       </div>
+      </div><!-- Trainer 4 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl overflow-hidden border border-gray-800">
+       <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+        <svg class="w-32 h-32 text-gray-700" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <h3 id="trainer4Name" class="font-bebas text-2xl text-white mb-1">EMMA TAYLOR</h3>
+        <p id="trainer4Specialty" class="text-gray-400 text-sm mb-3">Nutrition &amp; Wellness</p>
+        <p id="trainer4Bio" class="text-gray-500 text-xs leading-relaxed mb-4">Registered dietitian helping members achieve optimal nutrition and health.</p>
+        <div class="flex items-center gap-2 text-xs text-gray-600">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+         </svg><span id="trainer4Location">All Locations</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Gallery Section -->
+   <section id="gallery" class="py-24 bg-black relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16 scroll-reveal"><span class="inline-block px-4 py-2 bg-gray-600/20 text-gray-300 text-sm font-bold rounded-full border border-gray-600/30 mb-6"> OUR FACILITIES </span>
+      <h2 class="font-bebas text-5xl sm:text-6xl text-white mb-4">STATE-OF-THE-ART <span class="text-accent">GYM FACILITIES</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Take a look at our premium equipment and modern training spaces across all locations.</p>
+     </div><!-- Slider Container -->
+     <div class="relative"><!-- Slider Wrapper -->
+      <div class="overflow-hidden rounded-3xl">
+       <div id="gallerySlider" class="flex transition-transform duration-700 ease-out"><!-- Slide 1 -->
+        <div class="min-w-full relative h-[500px] flex-shrink-0">
+         <div class="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black flex items-center justify-center">
+          <div class="text-center">
+           <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
+            <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+           </div>
+           <h3 class="font-bebas text-5xl text-white mb-4">CARDIO ZONE</h3>
+           <p class="text-gray-400 text-lg max-w-md mx-auto">Latest treadmills, bikes, and ellipticals with individual entertainment systems</p>
+          </div>
+         </div>
+         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        </div><!-- Slide 2 -->
+        <div class="min-w-full relative h-[500px] flex-shrink-0">
+         <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
+          <div class="text-center">
+           <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
+            <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+            </svg>
+           </div>
+           <h3 class="font-bebas text-5xl text-white mb-4">WEIGHT ROOM</h3>
+           <p class="text-gray-400 text-lg max-w-md mx-auto">Complete free weight section with Olympic platforms and heavy-duty power racks</p>
+          </div>
+         </div>
+         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        </div><!-- Slide 3 -->
+        <div class="min-w-full relative h-[500px] flex-shrink-0">
+         <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 flex items-center justify-center">
+          <div class="text-center">
+           <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
+            <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+           </div>
+           <h3 class="font-bebas text-5xl text-white mb-4">GROUP STUDIO</h3>
+           <p class="text-gray-400 text-lg max-w-md mx-auto">Spacious mirrored studios with premium sound systems for energizing classes</p>
+          </div>
+         </div>
+         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        </div><!-- Slide 4 -->
+        <div class="min-w-full relative h-[500px] flex-shrink-0">
+         <div class="absolute inset-0 bg-gradient-to-br from-gray-800 via-black to-gray-900 flex items-center justify-center">
+          <div class="text-center">
+           <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
+            <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+            </svg>
+           </div>
+           <h3 class="font-bebas text-5xl text-white mb-4">FUNCTIONAL AREA</h3>
+           <p class="text-gray-400 text-lg max-w-md mx-auto">Dedicated CrossFit zone with rigs, ropes, sleds, and open floor space</p>
+          </div>
+         </div>
+         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        </div><!-- Slide 5 -->
+        <div class="min-w-full relative h-[500px] flex-shrink-0">
+         <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center">
+          <div class="text-center">
+           <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
+            <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+           </div>
+           <h3 class="font-bebas text-5xl text-white mb-4">LOCKER ROOMS</h3>
+           <p class="text-gray-400 text-lg max-w-md mx-auto">Modern facilities with private showers, saunas, and premium amenities</p>
+          </div>
+         </div>
+         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        </div><!-- Slide 6 -->
+        <div class="min-w-full relative h-[500px] flex-shrink-0">
+         <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-gray-800 flex items-center justify-center">
+          <div class="text-center">
+           <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
+            <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+           </div>
+           <h3 class="font-bebas text-5xl text-white mb-4">RECOVERY ZONE</h3>
+           <p class="text-gray-400 text-lg max-w-md mx-auto">Dedicated stretching area with foam rollers, massage tools, and recovery equipment</p>
+          </div>
+         </div>
+         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        </div>
+       </div>
+      </div><!-- Navigation Arrows --> <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-14 h-14 bg-secondary/90 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all duration-300 border border-gray-700 hover:border-transparent shadow-xl">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+       </svg></button> <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-14 h-14 bg-secondary/90 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-black transition-all duration-300 border border-gray-700 hover:border-transparent shadow-xl">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+       </svg></button> <!-- Dots Navigation -->
+      <div class="flex items-center justify-center gap-3 mt-8"><button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-all duration-300 hover:bg-gray-500" data-slide="0"></button> <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-all duration-300 hover:bg-gray-500" data-slide="1"></button> <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-all duration-300 hover:bg-gray-500" data-slide="2"></button> <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-all duration-300 hover:bg-gray-500" data-slide="3"></button> <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-all duration-300 hover:bg-gray-500" data-slide="4"></button> <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 transition-all duration-300 hover:bg-gray-500" data-slide="5"></button>
+      </div>
+     </div>
+    </div>
+   </section><!-- Locations Section -->
+   <section id="locations" class="py-24 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16 scroll-reveal"><span class="inline-block px-4 py-2 bg-gray-600/20 text-gray-300 text-sm font-bold rounded-full border border-gray-600/30 mb-6"> OUR LOCATIONS </span>
+      <h2 class="font-bebas text-5xl sm:text-6xl text-white mb-4">FIND A GYM <span class="text-accent">NEAR YOU</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">We have 3 convenient locations to serve you better. Visit us today!</p>
+     </div>
+     <div class="grid lg:grid-cols-3 gap-8"><!-- Location 1 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl overflow-hidden border border-gray-800">
+       <div class="aspect-video bg-gray-800 relative"><iframe id="map1" class="w-full h-full" frameborder="0" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div id="mapPlaceholder1" class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+         <svg class="w-16 h-16 text-gray-700" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+         </svg>
+        </div>
+       </div>
+       <div class="p-8">
+        <h3 id="branch1Name" class="font-bebas text-3xl text-white mb-4">DOWNTOWN</h3>
+        <div class="space-y-3">
+         <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <p id="branch1Address" class="text-gray-400">123 Main Street, Downtown, City 12345</p>
+         </div>
+         <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <p id="branch1Phone" class="text-gray-400">+1 (555) 100-0001</p>
+         </div>
+         <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p class="text-gray-400">Open 24/7</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Location 2 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl overflow-hidden border border-gray-800">
+       <div class="aspect-video bg-gray-800 relative"><iframe id="map2" class="w-full h-full" frameborder="0" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div id="mapPlaceholder2" class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+         <svg class="w-16 h-16 text-gray-700" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+         </svg>
+        </div>
+       </div>
+       <div class="p-8">
+        <h3 id="branch2Name" class="font-bebas text-3xl text-white mb-4">WESTSIDE</h3>
+        <div class="space-y-3">
+         <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <p id="branch2Address" class="text-gray-400">456 West Avenue, Westside, City 12346</p>
+         </div>
+         <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <p id="branch2Phone" class="text-gray-400">+1 (555) 200-0002</p>
+         </div>
+         <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p class="text-gray-400">Open 24/7</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Location 3 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl overflow-hidden border border-gray-800">
+       <div class="aspect-video bg-gray-800 relative"><iframe id="map3" class="w-full h-full" frameborder="0" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div id="mapPlaceholder3" class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+         <svg class="w-16 h-16 text-gray-700" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+         </svg>
+        </div>
+       </div>
+       <div class="p-8">
+        <h3 id="branch3Name" class="font-bebas text-3xl text-white mb-4">EASTSIDE</h3>
+        <div class="space-y-3">
+         <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <p id="branch3Address" class="text-gray-400">789 East Boulevard, Eastside, City 12347</p>
+         </div>
+         <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <p id="branch3Phone" class="text-gray-400">+1 (555) 300-0003</p>
+         </div>
+         <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p class="text-gray-400">Open 24/7</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Reviews Section -->
+   <section id="reviews" class="py-24 bg-primary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16 scroll-reveal"><span class="inline-block px-4 py-2 bg-gray-600/20 text-gray-300 text-sm font-bold rounded-full border border-gray-600/30 mb-6"> TESTIMONIALS </span>
+      <h2 class="font-bebas text-5xl sm:text-6xl text-white mb-4">WHAT OUR MEMBERS <span class="text-accent">SAY</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Real stories from real people who transformed their lives with Elite Fitness.</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Review 1 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center flex-shrink-0">
+         <svg class="w-8 h-8 text-gray-500" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+         </svg>
+        </div>
+        <div>
+         <h4 class="font-bold text-white">Sarah Johnson</h4>
+         <div class="flex items-center gap-1 star-rating"><span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-400 leading-relaxed">"Best gym I've ever joined! The trainers are incredibly knowledgeable and supportive. I've lost 30 pounds and gained so much confidence. The downtown location is perfect for my commute."</p>
+       <div class="mt-4 pt-4 border-t border-gray-800">
+        <p class="text-sm text-gray-600">Member since 2023 • Downtown</p>
+       </div>
+      </div><!-- Review 2 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center flex-shrink-0">
+         <svg class="w-8 h-8 text-gray-500" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+         </svg>
+        </div>
+        <div>
+         <h4 class="font-bold text-white">Michael Chen</h4>
+         <div class="flex items-center gap-1 star-rating"><span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-400 leading-relaxed">"The equipment is top-notch and always well-maintained. I love the variety of classes available. The CrossFit sessions are intense but worth every drop of sweat. Highly recommend!"</p>
+       <div class="mt-4 pt-4 border-t border-gray-800">
+        <p class="text-sm text-gray-600">Member since 2022 • Westside</p>
+       </div>
+      </div><!-- Review 3 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center flex-shrink-0">
+         <svg class="w-8 h-8 text-gray-500" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+         </svg>
+        </div>
+        <div>
+         <h4 class="font-bold text-white">Emily Rodriguez</h4>
+         <div class="flex items-center gap-1 star-rating"><span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-400 leading-relaxed">"Amazing community and atmosphere! The yoga classes have helped me so much with stress management. The instructors really care about your progress and form. Worth every penny!"</p>
+       <div class="mt-4 pt-4 border-t border-gray-800">
+        <p class="text-sm text-gray-600">Member since 2023 • Eastside</p>
+       </div>
+      </div><!-- Review 4 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center flex-shrink-0">
+         <svg class="w-8 h-8 text-gray-500" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+         </svg>
+        </div>
+        <div>
+         <h4 class="font-bold text-white">David Thompson</h4>
+         <div class="flex items-center gap-1 star-rating"><span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-400 leading-relaxed">"Clean facilities, friendly staff, and great hours. Being open 24/7 is perfect for my schedule. The personal training sessions have been transformative. I've never felt stronger!"</p>
+       <div class="mt-4 pt-4 border-t border-gray-800">
+        <p class="text-sm text-gray-600">Member since 2021 • Downtown</p>
+       </div>
+      </div><!-- Review 5 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center flex-shrink-0">
+         <svg class="w-8 h-8 text-gray-500" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+         </svg>
+        </div>
+        <div>
+         <h4 class="font-bold text-white">Jessica Williams</h4>
+         <div class="flex items-center gap-1 star-rating"><span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-400 leading-relaxed">"The group classes are so much fun! I've made great friends and the energy is contagious. The Zumba and boxing classes are my favorites. Never thought working out could be this enjoyable!"</p>
+       <div class="mt-4 pt-4 border-t border-gray-800">
+        <p class="text-sm text-gray-600">Member since 2023 • Westside</p>
+       </div>
+      </div><!-- Review 6 -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center flex-shrink-0">
+         <svg class="w-8 h-8 text-gray-500" fill="currentColor" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+         </svg>
+        </div>
+        <div>
+         <h4 class="font-bold text-white">Robert Martinez</h4>
+         <div class="flex items-center gap-1 star-rating"><span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span> <span class="star-filled">★</span>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-400 leading-relaxed">"Elite Fitness lives up to its name. The facilities are world-class and the trainers genuinely care about your goals. After 6 months, I'm in the best shape of my life. Can't recommend enough!"</p>
+       <div class="mt-4 pt-4 border-t border-gray-800">
+        <p class="text-sm text-gray-600">Member since 2022 • Eastside</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Pricing Section -->
+   <section id="pricing" class="py-24 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="text-center mb-16 scroll-reveal"><span class="inline-block px-4 py-2 bg-gray-600/20 text-gray-300 text-sm font-bold rounded-full border border-gray-600/30 mb-6"> PRICING PLANS </span>
+      <h2 class="font-bebas text-5xl sm:text-6xl text-white mb-4">CHOOSE YOUR <span class="text-accent">MEMBERSHIP</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Flexible pricing options to fit your lifestyle and budget. All plans include access to all 3 locations.</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"><!-- Basic Plan -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="text-center mb-8">
+        <h3 class="font-bebas text-3xl text-white mb-2">BASIC</h3>
+        <div class="mb-6"><span class="font-bebas text-5xl text-white">$29</span> <span class="text-gray-500">/month</span>
+        </div>
+        <p class="text-gray-400 text-sm">Perfect for beginners</p>
+       </div>
+       <ul class="space-y-4 mb-8">
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>All 3 locations</span></li>
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Gym floor access</span></li>
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Locker room</span></li>
+        <li class="flex items-center gap-3 text-gray-600">
+         <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+         </svg><span class="line-through">Group classes</span></li>
+        <li class="flex items-center gap-3 text-gray-600">
+         <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+         </svg><span class="line-through">Personal training</span></li>
+       </ul><button class="w-full py-4 border-2 border-gray-700 text-white font-bebas text-lg rounded-lg hover:border-gray-500 hover:bg-gray-700/10 transition-all"> CHOOSE PLAN </button>
+      </div><!-- Pro Plan (Featured) -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border-2 border-gray-500 relative transform md:scale-105">
+       <div class="absolute -top-4 left-1/2 transform -translate-x-1/2"><span class="px-4 py-1 bg-accent text-black text-xs font-bold rounded-full">MOST POPULAR</span>
+       </div>
+       <div class="text-center mb-8 mt-4">
+        <h3 class="font-bebas text-3xl text-white mb-2">PRO</h3>
+        <div class="mb-6"><span class="font-bebas text-5xl text-accent">$49</span> <span class="text-gray-500">/month</span>
+        </div>
+        <p class="text-gray-400 text-sm">For serious athletes</p>
+       </div>
+       <ul class="space-y-4 mb-8">
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Everything in Basic</span></li>
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Unlimited classes</span></li>
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Nutrition consultation</span></li>
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>1 guest pass/month</span></li>
+        <li class="flex items-center gap-3 text-gray-600">
+         <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+         </svg><span class="line-through">Personal training</span></li>
+       </ul><button class="w-full py-4 btn-primary bg-accent text-black font-bebas text-lg rounded-lg hover:shadow-2xl"> CHOOSE PLAN </button>
+      </div><!-- Elite Plan -->
+      <div class="scroll-reveal card-hover bg-gradient-to-br from-secondary to-primary rounded-2xl p-8 border border-gray-800">
+       <div class="text-center mb-8">
+        <h3 class="font-bebas text-3xl text-white mb-2">ELITE</h3>
+        <div class="mb-6"><span class="font-bebas text-5xl text-white">$79</span> <span class="text-gray-500">/month</span>
+        </div>
+        <p class="text-gray-400 text-sm">Premium experience</p>
+       </div>
+       <ul class="space-y-4 mb-8">
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Everything in Pro</span></li>
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>4 PT sessions/month</span></li>
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Custom meal plan</span></li>
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>Priority booking</span></li>
+        <li class="flex items-center gap-3 text-gray-300">
+         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+         </svg><span>VIP locker</span></li>
+       </ul><button class="w-full py-4 border-2 border-gray-700 text-white font-bebas text-lg rounded-lg hover:border-gray-500 hover:bg-gray-700/10 transition-all"> CHOOSE PLAN </button>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact/Footer Section -->
+   <section id="contact" class="py-16 bg-primary border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid md:grid-cols-4 gap-8 mb-8"><!-- Brand -->
+      <div class="md:col-span-2">
+       <div class="flex items-center space-x-3 mb-4">
+        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+         <svg class="w-7 h-7 text-black" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+         </svg>
+        </div><span id="gymNameFooter" class="font-bebas text-2xl text-white">ELITE FITNESS</span>
+       </div>
+       <p class="text-gray-500 mb-4 max-w-md">Transform your life with the strongest fitness community. Join us at any of our 3 convenient locations.</p>
+       <div class="flex items-center gap-4"><a href="#" class="p-3 bg-secondary rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all">
+         <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+         </svg></a> <a href="#" class="p-3 bg-secondary rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all">
+         <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+         </svg></a> <a href="#" class="p-3 bg-secondary rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all">
+         <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+         </svg></a>
+       </div>
+      </div><!-- Quick Links -->
+      <div>
+       <h4 class="font-bebas text-lg text-white mb-4">QUICK LINKS</h4>
+       <ul class="space-y-2">
+        <li><a href="#about" class="text-gray-500 hover:text-white transition-colors">About</a></li>
+        <li><a href="#classes" class="text-gray-500 hover:text-white transition-colors">Classes</a></li>
+        <li><a href="#locations" class="text-gray-500 hover:text-white transition-colors">Locations</a></li>
+        <li><a href="#pricing" class="text-gray-500 hover:text-white transition-colors">Pricing</a></li>
+       </ul>
+      </div><!-- Contact -->
+      <div>
+       <h4 class="font-bebas text-lg text-white mb-4">CONTACT</h4>
+       <ul class="space-y-2 text-gray-500 text-sm">
+        <li id="footerEmail">info@elitefitness.com</li>
+        <li>Open 24/7</li>
+        <li>All Locations</li>
+       </ul>
+      </div>
+     </div>
+     <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between">
+      <p class="text-gray-600 text-sm">© 2024 Elite Fitness. All rights reserved.</p>
+      <div class="flex items-center gap-6 mt-4 md:mt-0"><a href="#" class="text-gray-600 hover:text-gray-400 text-sm transition-colors">Privacy Policy</a> <a href="#" class="text-gray-600 hover:text-gray-400 text-sm transition-colors">Terms of Service</a>
+      </div>
+     </div>
+    </div>
+   </section>
+  </div>
+  <script>
+    // Default Configuration
+    const defaultConfig = {
+      gym_name: "ELITE FITNESS",
+      hero_title: "TRANSFORM YOUR BODY",
+      hero_subtitle: "Join the strongest fitness community and achieve your goals with expert trainers, state-of-the-art equipment, and unlimited motivation.",
+      about_title: "WHERE FITNESS MEETS EXCELLENCE",
+      about_description: "At Elite Fitness, we're more than just a gym – we're a community dedicated to helping you achieve your fitness goals. With state-of-the-art equipment, expert trainers, and a motivating atmosphere across 3 convenient locations, we provide everything you need to transform your body and mind.",
+      trainer1_name: "MIKE JOHNSON",
+      trainer1_specialty: "Strength & Conditioning",
+      trainer1_bio: "10+ years experience. Specializes in powerlifting and athletic performance.",
+      trainer1_location: "Downtown",
+      trainer2_name: "SARAH MARTINEZ",
+      trainer2_specialty: "Yoga & Flexibility",
+      trainer2_bio: "Certified yoga instructor with focus on mobility and mindfulness training.",
+      trainer2_location: "Westside",
+      trainer3_name: "ALEX CHEN",
+      trainer3_specialty: "CrossFit & HIIT",
+      trainer3_bio: "Former athlete specializing in high-intensity functional fitness programs.",
+      trainer3_location: "Eastside",
+      trainer4_name: "EMMA TAYLOR",
+      trainer4_specialty: "Nutrition & Wellness",
+      trainer4_bio: "Registered dietitian helping members achieve optimal nutrition and health.",
+      trainer4_location: "All Locations",
+      branch1_name: "DOWNTOWN",
+      branch1_address: "123 Main Street, Downtown, City 12345",
+      branch1_phone: "+1 (555) 100-0001",
+      branch1_map: "",
+      branch2_name: "WESTSIDE",
+      branch2_address: "456 West Avenue, Westside, City 12346",
+      branch2_phone: "+1 (555) 200-0002",
+      branch2_map: "",
+      branch3_name: "EASTSIDE",
+      branch3_address: "789 East Boulevard, Eastside, City 12347",
+      branch3_phone: "+1 (555) 300-0003",
+      branch3_map: "",
+      contact_email: "info@elitefitness.com",
+      primary_color: "#0d0d0d",
+      accent_color: "#8a8a8a",
+      text_color: "#ffffff"
+    };
+
+    // Initialize Element SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          // Update gym name
+          const gymName = config.gym_name || defaultConfig.gym_name;
+          const gymNameElements = ['gymNameNav', 'gymNameFooter'];
+          gymNameElements.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = gymName;
+          });
+          
+          // Update hero section
+          const heroTitle = document.getElementById('heroTitle');
+          if (heroTitle) {
+            const titleParts = (config.hero_title || defaultConfig.hero_title).split(' ');
+            const lastTwoWords = titleParts.slice(-2).join(' ');
+            const firstWords = titleParts.slice(0, -2).join(' ');
+            heroTitle.innerHTML = `<span class="block text-white">${firstWords}</span><span class="block text-accent">${lastTwoWords}</span>`;
+          }
+          
+          const heroSubtitle = document.getElementById('heroSubtitle');
+          if (heroSubtitle) {
+            heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+          }
+          
+          // Update about section
+          const aboutTitle = document.getElementById('aboutTitle');
+          if (aboutTitle) {
+            const title = config.about_title || defaultConfig.about_title;
+            const words = title.split(' ');
+            const lastWord = words.pop();
+            aboutTitle.innerHTML = `${words.join(' ')} <span class="text-accent">${lastWord}</span>`;
+          }
+          
+          const aboutDescription = document.getElementById('aboutDescription');
+          if (aboutDescription) {
+            aboutDescription.textContent = config.about_description || defaultConfig.about_description;
+          }
+          
+          // Update trainers
+          for (let i = 1; i <= 4; i++) {
+            const nameEl = document.getElementById(`trainer${i}Name`);
+            if (nameEl) nameEl.textContent = config[`trainer${i}_name`] || defaultConfig[`trainer${i}_name`];
+            
+            const specialtyEl = document.getElementById(`trainer${i}Specialty`);
+            if (specialtyEl) specialtyEl.textContent = config[`trainer${i}_specialty`] || defaultConfig[`trainer${i}_specialty`];
+            
+            const bioEl = document.getElementById(`trainer${i}Bio`);
+            if (bioEl) bioEl.textContent = config[`trainer${i}_bio`] || defaultConfig[`trainer${i}_bio`];
+            
+            const locationEl = document.getElementById(`trainer${i}Location`);
+            if (locationEl) locationEl.textContent = config[`trainer${i}_location`] || defaultConfig[`trainer${i}_location`];
+          }
+          
+          // Update branch locations
+          const branch1Name = document.getElementById('branch1Name');
+          if (branch1Name) branch1Name.textContent = config.branch1_name || defaultConfig.branch1_name;
+          
+          const branch1Address = document.getElementById('branch1Address');
+          if (branch1Address) branch1Address.textContent = config.branch1_address || defaultConfig.branch1_address;
+          
+          const branch1Phone = document.getElementById('branch1Phone');
+          if (branch1Phone) branch1Phone.textContent = config.branch1_phone || defaultConfig.branch1_phone;
+          
+          const branch2Name = document.getElementById('branch2Name');
+          if (branch2Name) branch2Name.textContent = config.branch2_name || defaultConfig.branch2_name;
+          
+          const branch2Address = document.getElementById('branch2Address');
+          if (branch2Address) branch2Address.textContent = config.branch2_address || defaultConfig.branch2_address;
+          
+          const branch2Phone = document.getElementById('branch2Phone');
+          if (branch2Phone) branch2Phone.textContent = config.branch2_phone || defaultConfig.branch2_phone;
+          
+          const branch3Name = document.getElementById('branch3Name');
+          if (branch3Name) branch3Name.textContent = config.branch3_name || defaultConfig.branch3_name;
+          
+          const branch3Address = document.getElementById('branch3Address');
+          if (branch3Address) branch3Address.textContent = config.branch3_address || defaultConfig.branch3_address;
+          
+          const branch3Phone = document.getElementById('branch3Phone');
+          if (branch3Phone) branch3Phone.textContent = config.branch3_phone || defaultConfig.branch3_phone;
+          
+          // Update map embeds
+          const map1 = document.getElementById('map1');
+          const mapPlaceholder1 = document.getElementById('mapPlaceholder1');
+          const mapUrl1 = config.branch1_map || defaultConfig.branch1_map;
+          if (mapUrl1 && mapUrl1.includes('google.com/maps/embed')) {
+            map1.src = mapUrl1;
+            if (mapPlaceholder1) mapPlaceholder1.style.display = 'none';
+          } else {
+            map1.src = '';
+            if (mapPlaceholder1) mapPlaceholder1.style.display = 'flex';
+          }
+          
+          const map2 = document.getElementById('map2');
+          const mapPlaceholder2 = document.getElementById('mapPlaceholder2');
+          const mapUrl2 = config.branch2_map || defaultConfig.branch2_map;
+          if (mapUrl2 && mapUrl2.includes('google.com/maps/embed')) {
+            map2.src = mapUrl2;
+            if (mapPlaceholder2) mapPlaceholder2.style.display = 'none';
+          } else {
+            map2.src = '';
+            if (mapPlaceholder2) mapPlaceholder2.style.display = 'flex';
+          }
+          
+          const map3 = document.getElementById('map3');
+          const mapPlaceholder3 = document.getElementById('mapPlaceholder3');
+          const mapUrl3 = config.branch3_map || defaultConfig.branch3_map;
+          if (mapUrl3 && mapUrl3.includes('google.com/maps/embed')) {
+            map3.src = mapUrl3;
+            if (mapPlaceholder3) mapPlaceholder3.style.display = 'none';
+          } else {
+            map3.src = '';
+            if (mapPlaceholder3) mapPlaceholder3.style.display = 'flex';
+          }
+          
+          // Update contact email
+          const footerEmail = document.getElementById('footerEmail');
+          if (footerEmail) footerEmail.textContent = config.contact_email || defaultConfig.contact_email;
+          
+          // Update colors
+          const primaryColor = config.primary_color || defaultConfig.primary_color;
+          const accentColor = config.accent_color || defaultConfig.accent_color;
+          const textColor = config.text_color || defaultConfig.text_color;
+          
+          document.body.style.backgroundColor = primaryColor;
+          document.body.style.color = textColor;
+          
+          // Update accent gradients
+          document.querySelectorAll('.bg-accent').forEach(el => {
+            el.style.background = `linear-gradient(135deg, ${accentColor} 0%, #b8b8b8 100%)`;
+          });
+          
+          document.querySelectorAll('.text-accent').forEach(el => {
+            el.style.background = `linear-gradient(135deg, ${accentColor} 0%, #b8b8b8 100%)`;
+            el.style.webkitBackgroundClip = 'text';
+            el.style.webkitTextFillColor = 'transparent';
+            el.style.backgroundClip = 'text';
+          });
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ primary_color: value });
+                }
+              }
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ accent_color: value });
+                }
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ text_color: value });
+                }
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['gym_name', config.gym_name || defaultConfig.gym_name],
+          ['hero_title', config.hero_title || defaultConfig.hero_title],
+          ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+          ['about_title', config.about_title || defaultConfig.about_title],
+          ['about_description', config.about_description || defaultConfig.about_description],
+          ['trainer1_name', config.trainer1_name || defaultConfig.trainer1_name],
+          ['trainer1_specialty', config.trainer1_specialty || defaultConfig.trainer1_specialty],
+          ['trainer1_bio', config.trainer1_bio || defaultConfig.trainer1_bio],
+          ['trainer1_location', config.trainer1_location || defaultConfig.trainer1_location],
+          ['trainer2_name', config.trainer2_name || defaultConfig.trainer2_name],
+          ['trainer2_specialty', config.trainer2_specialty || defaultConfig.trainer2_specialty],
+          ['trainer2_bio', config.trainer2_bio || defaultConfig.trainer2_bio],
+          ['trainer2_location', config.trainer2_location || defaultConfig.trainer2_location],
+          ['trainer3_name', config.trainer3_name || defaultConfig.trainer3_name],
+          ['trainer3_specialty', config.trainer3_specialty || defaultConfig.trainer3_specialty],
+          ['trainer3_bio', config.trainer3_bio || defaultConfig.trainer3_bio],
+          ['trainer3_location', config.trainer3_location || defaultConfig.trainer3_location],
+          ['trainer4_name', config.trainer4_name || defaultConfig.trainer4_name],
+          ['trainer4_specialty', config.trainer4_specialty || defaultConfig.trainer4_specialty],
+          ['trainer4_bio', config.trainer4_bio || defaultConfig.trainer4_bio],
+          ['trainer4_location', config.trainer4_location || defaultConfig.trainer4_location],
+          ['branch1_name', config.branch1_name || defaultConfig.branch1_name],
+          ['branch1_address', config.branch1_address || defaultConfig.branch1_address],
+          ['branch1_phone', config.branch1_phone || defaultConfig.branch1_phone],
+          ['branch1_map', config.branch1_map || defaultConfig.branch1_map],
+          ['branch2_name', config.branch2_name || defaultConfig.branch2_name],
+          ['branch2_address', config.branch2_address || defaultConfig.branch2_address],
+          ['branch2_phone', config.branch2_phone || defaultConfig.branch2_phone],
+          ['branch2_map', config.branch2_map || defaultConfig.branch2_map],
+          ['branch3_name', config.branch3_name || defaultConfig.branch3_name],
+          ['branch3_address', config.branch3_address || defaultConfig.branch3_address],
+          ['branch3_phone', config.branch3_phone || defaultConfig.branch3_phone],
+          ['branch3_map', config.branch3_map || defaultConfig.branch3_map],
+          ['contact_email', config.contact_email || defaultConfig.contact_email]
+        ])
+      });
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 100) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+
+    // Scroll Reveal Animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Gallery Slider Functionality
+    const gallerySlider = document.getElementById('gallerySlider');
+    const prevSlideBtn = document.getElementById('prevSlide');
+    const nextSlideBtn = document.getElementById('nextSlide');
+    const sliderDots = document.querySelectorAll('.slider-dot');
+    let currentSlide = 0;
+    const totalSlides = 6;
+    let autoSlideInterval;
+
+    function updateSlider() {
+      const translateX = -currentSlide * 100;
+      gallerySlider.style.transform = `translateX(${translateX}%)`;
+      
+      // Update dots
+      sliderDots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.add('bg-accent');
+          dot.classList.remove('bg-gray-600');
+          dot.style.width = '32px';
+        } else {
+          dot.classList.remove('bg-accent');
+          dot.classList.add('bg-gray-600');
+          dot.style.width = '12px';
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateSlider();
+    }
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+    }
+
+    // Event listeners
+    nextSlideBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+
+    prevSlideBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+    });
+
+    sliderDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        stopAutoSlide();
+        goToSlide(index);
+        startAutoSlide();
+      });
+    });
+
+    // Pause auto-slide on hover
+    const sliderContainer = gallerySlider.parentElement.parentElement;
+    sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+    sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide();
+      } else if (e.key === 'ArrowRight') {
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide();
+      }
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    gallerySlider.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoSlide();
+    });
+
+    gallerySlider.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+      startAutoSlide();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      if (touchStartX - touchEndX > swipeThreshold) {
+        nextSlide();
+      } else if (touchEndX - touchStartX > swipeThreshold) {
+        prevSlide();
+      }
+    }
+
+    // Initialize slider
+    updateSlider();
+    startAutoSlide();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bc433d195c62fe5',t:'MTc2ODEzMjI4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
